@@ -6,7 +6,8 @@ export const getAllRockets = async ()=>{
         heightRocket = [], 
         listDiameter = [], 
         listaDiameterComposite = [],
-        listaHeightComposite = [];
+        listaHeightComposite = [],
+        listaInfo = [];
 
     data.forEach((val, id) => {
         listMasa.push(val.mass.kg);
@@ -15,8 +16,23 @@ export const getAllRockets = async ()=>{
         listDiameter.push(val.diameter)
         listaDiameterComposite.push(val.second_stage.payloads.composite_fairing.diameter)
         listaHeightComposite.push(val.second_stage.payloads.composite_fairing.height)
+        listaInfo.push({
+            name: val.name,
+            type: val.type,
+            active: val.active,
+            stages: val.stages,
+            boosters: val.boosters,
+            cost_per_launch: val.cost_per_launch,
+            success_rate_pct: val.success_rate_pct,
+            first_flight: val.first_flight,
+            country: val.country,
+            company: val.company,
+            description: val.description,
+            id: val.id
+        })
     });
     
+    data.push(listaInfo);
     listMasa.sort((a,b) => b - a)
     listPayloadWeights.sort((a,b) => b.kg - a.kg)
     heightRocket.sort((a,b) => b.meters - a.meters)

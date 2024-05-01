@@ -5,7 +5,15 @@ import {
     progressHeightRocket, 
     progressDiameterRocket,
     progressSecondStageDiameterRocket,
-    progressSecondStageHeightRocket
+    progressSecondStageHeightRocket,
+    infoName,
+    infoType,
+    infoActive,
+    infoFirst_flight,
+    infoCountry,
+    infoCompany,
+    infoDescription,
+    infoId
 } from "./modulesComponents/progressBar.js";
 
 
@@ -24,3 +32,16 @@ information__2.append(...progressHeightRocket(Totales.height, Rockets3))
 information__2.append(...progressDiameterRocket(Totales.diameter, Rockets3))
 information__2.append(...progressSecondStageDiameterRocket(Totales.composite_diameter, Rockets3))
 information__2.append(...progressSecondStageHeightRocket(Totales.composite_height, Rockets3))
+
+
+let information = document.querySelector("#information");
+
+information.append(...infoName(Rockets3))
+information.append(...infoType(Rockets3))
+information.append(...infoActive(Rockets3))
+information.append(...infoFirst_flight(Rockets3))
+information.append(...infoCountry(Rockets3))
+information.append(...infoCompany(Rockets3))
+information.append(...infoDescription(Rockets3))
+information.append(...infoId(Rockets3))
+
