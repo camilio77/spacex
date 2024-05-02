@@ -7,7 +7,7 @@
     font-family: "Roboto-Regular";
 }
 body{
-    background: linear-gradient(var(--color--one), var(--color--one--rgba));
+    background-image: linear-gradient(var(--color--one), var(--color--one--rgba)), url(../storage/img/icons/iconos/pattern\(1\).svg);
 }
 *::-webkit-scrollbar {
     height: 10px;
@@ -31,6 +31,7 @@ body{
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+    width: 100%;
 }
 
 .main {
@@ -63,6 +64,7 @@ body{
     margin: 0 var(--layout-description-container-x);
     margin-bottom: var(--layout-description-container-y);
 }
+
 
 .main__section {
     /* background: green; */
@@ -205,6 +207,7 @@ body{
 .information__container div:first-child progress{
     width: 100%;
 }
+
 .information__container div:last-child {
     /* background: red; */
     width: 40%;

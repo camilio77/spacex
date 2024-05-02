@@ -13,7 +13,8 @@ import {
     infoCountry,
     infoCompany,
     infoDescription,
-    infoId
+    infoId,
+    infoImg
 } from "./modulesComponents/progressBar.js";
 
 
@@ -36,6 +37,7 @@ information__2.append(...progressSecondStageHeightRocket(Totales.composite_heigh
 
 let information = document.querySelector("#information");
 
+information.append(...infoImg(Rockets3))
 information.append(...infoName(Rockets3))
 information.append(...infoType(Rockets3))
 information.append(...infoActive(Rockets3))
