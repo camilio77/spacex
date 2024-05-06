@@ -390,7 +390,7 @@ export const infoImg = (Rockets)=>{
         imgFist.style.width = "100%";
         imgFist.style.height = "100%";
         imgFist.style.borderRadius = "2px";
-        imgFist.style.boxShadow = "red 0px 0px 6px 4px";
+        imgFist.style.boxShadow = "#298BFE 0px 0px 6px 4px";
     
         divInformationContainer.append(imgFist)
         conterDiv.push(divInformationContainer)

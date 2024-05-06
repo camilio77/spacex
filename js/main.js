@@ -16,6 +16,17 @@ import {
     infoId,
     infoImg
 } from "./modulesComponents/progressBar.js";
+import { 
+    nameRockets 
+} from "./modulesComponents/name.js";
+import { 
+    tableRocketColum1, 
+    tableRocketColum2
+} from "./modulesComponents/tables.js";
+import { 
+    informRocketEngineThrustSeaLevel, 
+    informRocketEngineThrustVacuum
+} from "./modulesComponents/inform.js";
 
 
 let information__2 = document.querySelector("#information__2");
@@ -46,4 +57,10 @@ information.append(...infoCountry(Rockets3))
 information.append(...infoCompany(Rockets3))
 information.append(...infoDescription(Rockets3))
 information.append(...infoId(Rockets3))
+
+await nameRockets(Rockets3.name)
+await tableRocketColum1(Rockets3)
+await tableRocketColum2(Rockets3)
+await informRocketEngineThrustSeaLevel(Rockets3.engines.thrust_sea_level);
+await informRocketEngineThrustVacuum(Rockets3.engines.thrust_vacuum);
 
