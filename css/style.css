@@ -235,21 +235,43 @@ body {
     display: flex;
     overflow-x: auto;
     align-items: center;
+    object-fit: contain;
 }
-
-.section__image>.carousel__item {
-    /* background: violet; */
-    text-align: center;
-    margin: 0 10px;
-
+.planets{
+    object-fit: contain;
+    width: 100%;
+    box-sizing: border-box;
 }
-
-.section__image>.carousel__item img {
-    width: 305px;
-    height: 190px;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0px 0px 10px var(--color--one);
+.planetsimg{
+    width: 100%;
+    height: 100%;
+}
+.rocket{
+    width: 100px;
+    width: 100px;
+    object-fit: contain;
+    position: absolute;
+    animation: moveRocket 5s linear infinite;
+}
+@keyframes moveRocket {
+    0% {
+      transform: translateX(50px) translateY(100px) rotate(-5deg) scale(0.2);
+    }
+    25% {
+      transform: translateY(-20px) translateX(70px) rotate(-5deg) ;
+    }
+    50% {
+      transform: translateY(-100px) translateX(120px) rotate(180deg) scale(0.2);
+    }
+    75% {
+        transform: translateY(-100px) translateX(120px) rotate(180deg);
+    }
+    100%{
+        transform: translateX(50px) translateY(100px) rotate(-5deg) scale(0.2);
+    }
+  }
+.rocketimg{
+    width: 100%;
 }
 
 .section__information__3 {
@@ -445,3 +467,4 @@ progress[value]::-moz-progress-bar {
     border-radius: 10em;
     background: var(--color);
 }
+

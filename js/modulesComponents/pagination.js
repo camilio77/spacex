@@ -43,8 +43,6 @@ const getRocketsId = async(e)=>{
     information__2.innerHTML = "";
     let description__item = document.querySelector("#description__item")
     description__item.innerHTML = "";
-    let section__image = document.querySelector("#section__image")
-    section__image.innerHTML = "";
 
     let Rocket = await getAllRocketsId(e.target.id);
     console.log(Rocket);

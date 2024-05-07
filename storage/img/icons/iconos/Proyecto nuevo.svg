@@ -1,0 +1,27 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 897 1019" width="897" height="1019">
+	<title>Proyecto nuevo</title>
+	<defs>
+		<linearGradient id="g1" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(15.146,289,-286.013,14.989,729.427,34)">
+			<stop offset="0" stop-color="#0000ff"/>
+			<stop offset=".424" stop-color="#0bd8bd"/>
+			<stop offset=".434" stop-color="#0bd8bd"/>
+			<stop offset=".88" stop-color="#004b91"/>
+			<stop offset=".982" stop-color="#004c91"/>
+			<stop offset="1" stop-color="#004c91"/>
+		</linearGradient>
+		<linearGradient id="g2" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(376.56,418.213,-418.496,376.816,51.105,570)">
+			<stop offset="0" stop-color="#242476"/>
+			<stop offset=".42" stop-color="#0b70d8"/>
+			<stop offset=".434" stop-color="#0b70d8"/>
+			<stop offset=".88" stop-color="#006091"/>
+			<stop offset=".98" stop-color="#3677b3"/>
+			<stop offset="1" stop-color="#3677b3"/>
+		</linearGradient>
+	</defs>
+	<style>
+		.s0 { fill: url(#g1) } 
+		.s1 { fill: url(#g2) } 
+	</style>
+	<path id="Background" class="s0" d="m737 323c-79.1 0-143-64.6-143-144.5 0-79.9 63.9-144.5 143-144.5 79.1 0 143 64.6 143 144.5 0 79.9-63.9 144.5-143 144.5z"/>
+	<path id="Forma 1" class="s1" d="m239.4 988.2c-116.4 0-210.4-93.5-210.4-209.1 0-115.6 94-209.1 210.4-209.1 116.3 0 210.4 93.5 210.4 209.1 0 115.6-94.1 209.1-210.4 209.1z"/>
+</svg>
