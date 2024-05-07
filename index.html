@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceX</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/style.css">
     <script type="module" src="js/main.js" defer></script>
@@ -15,12 +16,16 @@
     </header>
     <main class="main">
         <nav class="nav__description">
-            <div class="description__item" id="information">
-                
+            <div id="description__item" class="description__item">
+                <div class="load"></div>
+                <div class="load"></div>
+                <div class="load"></div>
+                <div class="load"></div>
+                <div class="load"></div>
             </div>
             <div class="description__buttom">
-                <a href="#">a</a>
-                <a href="#">b</a>
+                <!-- <a href="#">a</a>
+                <a href="#">b</a> -->
             </div>
         </nav>
         <section class="main__section">
@@ -30,22 +35,7 @@
             <article class="section__information__container">
                 <div class="section__information__2">
                     <div>
-                        <div class="carousel__item">
-                            <div class="item__progress__bar">
-                                <div class="progress__value">
-                                    <strong>Title</strong>
-                                    <small>3</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel__item">
-                            <div class="item__progress__bar">
-                                <div class="progress__value">
-                                    <strong>Title</strong>
-                                    <small>3</small>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="load" style="height: 150px;"></div>
                     </div>
                     <div id="information__table__1" class="information__table__1">
                         <div class="load" style="height: 160px;"></div>
@@ -56,22 +46,7 @@
                 </div>
                 <div class="section__information__3">
                     <div>
-                        <div class="carousel__item">
-                            <div class="item__progress__bar">
-                                <div class="progress__value">
-                                    <strong>Title</strong>
-                                    <small>3</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel__item">
-                            <div class="item__progress__bar">
-                                <div class="progress__value">
-                                    <strong>Title</strong>
-                                    <small>3</small>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="load" style="height: 150px;"></div>
                     </div>
                     <div id="information__table__2" class="information__table__2">
                         <div class="load" style="height: 160px;"></div>
@@ -80,13 +55,13 @@
             </article>
             <footer class="footer">
                 <ul>
-                    <li>
-                        <a href="#">
+                    <li id="rocket">
+                        <a class="select" href="#">
                             <img src="./storage/img/icons/iconos/rocket.svg">
                             <span>Rocket</span>
                         </a>
                     </li>
-                    <li>
+                    <li id="capsules">
                         <a href="#">
                             <img src="./storage/img/icons/iconos/life.svg">
                             <span>Life</span>
@@ -139,14 +114,35 @@
         </section>
         <nav class="nav__information">
             <div id="information__2" class="information__item">
-                
+                <div class="load"></div>
+                <div class="load"></div>
+                <div class="load"></div>
+                <div class="load"></div>
+                <div class="load"></div>
             </div>
-            <div class="information__buttom">
-                <a href="#">a</a>
-                <a href="#">b</a>
+            <div id="paginacion" class="information__buttom">
+                <div class="load"></div>
             </div>
         </nav>
     </main>
+
+    
+    <!-- Check icons -->
+    <!-- <i class='bx bxs-check-circle' style='color:#9499c3'  ></i>
+    <i class='bx bxs-check-circle' style='color:#40c110'  ></i>
+    <i class='bx bxs-check-circle' style='color:#ea7b15'  ></i> -->
+
+    <!-- Nav icons -->
+    <!-- <img src="storage/img/icons/rocket.svg">
+    <i class='bx bx-body' style='color:#e72d2d'></i>
+    <img src="storage/img/icons/comms.svg">
+    <img src="storage/img/icons/prop.svg">
+    <img src="storage/img/icons/mech.svg">
+    <i class='bx bxs-battery-charging bx-rotate-270' style='color:#ffffff'  ></i>
+    <i class='bx bxs-chip' style='color:#ffffff'  ></i>
+    <i class='bx bx-current-location bx-rotate-270' style='color:#ffffff'  ></i>
+    <i class='bx bxs-brightness-half' style="color: #fff"></i>  -->
+    
     
 </body>
 </html>

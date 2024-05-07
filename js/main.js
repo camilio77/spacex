@@ -1,66 +1,32 @@
-import { getAllRockets } from "./modules/rockets.js";
 import { 
-    progressRocketWeight, 
-    progressPayloadWeights, 
-    progressHeightRocket, 
-    progressDiameterRocket,
-    progressSecondStageDiameterRocket,
-    progressSecondStageHeightRocket,
-    infoName,
-    infoType,
-    infoActive,
-    infoFirst_flight,
-    infoCountry,
-    infoCompany,
-    infoDescription,
-    infoId,
-    infoImg
-} from "./modulesComponents/progressBar.js";
-import { 
-    nameRockets 
-} from "./modulesComponents/name.js";
-import { 
-    tableRocketColum1, 
-    tableRocketColum2
-} from "./modulesComponents/tables.js";
-import { 
-    informRocketEngineThrustSeaLevel, 
-    informRocketEngineThrustVacuum
-} from "./modulesComponents/inform.js";
+    paginationRockets
+} from "./modulesComponents/pagination.js";
+
+let footerSelect = async(e, id)=>{
+    e.preventDefault();
+    let li = document.querySelectorAll(".footer ul li")
+    console.log(li);
+    for(let val of li){
+        let [a] = val.children
+        a.classList.remove('select');
+    }
+    let [a] = id.children
+    a.classList.add('select');   
+}
 
 
-let information__2 = document.querySelector("#information__2");
-let dataRockets = await getAllRockets();
-let Totales = dataRockets.pop()
+let rocket = document.querySelector("#rocket")
+rocket.addEventListener("click", async(e)=>{
+    await footerSelect(e, rocket)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationRockets())
+} )
 
-let [Rockets1, Rockets2, Rockets3, Rockets4] = dataRockets; 
-
-console.log(dataRockets);
-console.log(Totales);
-
-information__2.append(...progressRocketWeight(Totales.kg_max, Rockets3))
-information__2.append(...progressPayloadWeights(Totales.payload_weights, Rockets3))
-information__2.append(...progressHeightRocket(Totales.height, Rockets3))
-information__2.append(...progressDiameterRocket(Totales.diameter, Rockets3))
-information__2.append(...progressSecondStageDiameterRocket(Totales.composite_diameter, Rockets3))
-information__2.append(...progressSecondStageHeightRocket(Totales.composite_height, Rockets3))
+let capsules = document.querySelector("#capsules")
+capsules.addEventListener("click", async(e)=>{
+    await footerSelect(e, capsules)
+})
 
 
-let information = document.querySelector("#information");
-
-information.append(...infoImg(Rockets3))
-information.append(...infoName(Rockets3))
-information.append(...infoType(Rockets3))
-information.append(...infoActive(Rockets3))
-information.append(...infoFirst_flight(Rockets3))
-information.append(...infoCountry(Rockets3))
-information.append(...infoCompany(Rockets3))
-information.append(...infoDescription(Rockets3))
-information.append(...infoId(Rockets3))
-
-await nameRockets(Rockets3.name)
-await tableRocketColum1(Rockets3)
-await tableRocketColum2(Rockets3)
-await informRocketEngineThrustSeaLevel(Rockets3.engines.thrust_sea_level);
-await informRocketEngineThrustVacuum(Rockets3.engines.thrust_vacuum);
-
+rocket.click();

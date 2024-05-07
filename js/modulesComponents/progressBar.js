@@ -1,7 +1,15 @@
-export const progressRocketWeight = (Totales, Rockets)=>{
+import { 
+    getRocketMassTotal, 
+    getRocketPayloadWeightsTotal, 
+    getRocketHeightTotal, 
+    getRocketDiameterTotal,
+    getRocketSecondStageCompositeFairingDiameterTotal,
+    getRocketSecondStageCompositeFairingHeightTotal
+} from "../modules/rockets.js";
+export const progressRocketWeight = async(Rockets)=>{
+    let {kg} = await getRocketMassTotal();
     let conterDiv = [];
-
-    [Rockets].forEach(val => {
+    [Rockets].forEach((val) => {
         let divInformationContainer = document.createElement("div");
         divInformationContainer.classList.add("information__container")
         let divFirst = document.createElement("div");
@@ -9,7 +17,7 @@ export const progressRocketWeight = (Totales, Rockets)=>{
         labelFist.textContent = "Rocket weight :";
     
         let ProgressFist = document.createElement("progress");
-        ProgressFist.max = Totales;
+        ProgressFist.max = kg
         ProgressFist.value = `${val.mass.kg}`;
         ProgressFist.textContent = `${val.mass.kg}%`;
     
@@ -27,9 +35,20 @@ export const progressRocketWeight = (Totales, Rockets)=>{
         divInformationContainer.append(divLast)
         conterDiv.push(divInformationContainer)
     });
-    return conterDiv
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+    // <div class="information__container">
+    //     <div>
+    //         <label>Totle :</label>
+    //         <progress max="100" value="70">70%</progress>
+    //     </div>
+    //     <div>
+    //         <span>0 kg <br> 0 lb</span>
+    //     </div>
+    // </div>
 }
-export const progressPayloadWeights = (Totales, Rockets)=>{
+export const progressPayloadWeights = async(Rockets)=>{
+    let {kg} = await getRocketPayloadWeightsTotal();
     let conterDiv = [];
     Rockets.payload_weights.forEach(val => {
         let divInformationContainer = document.createElement("div");
@@ -39,7 +58,7 @@ export const progressPayloadWeights = (Totales, Rockets)=>{
         labelFist.textContent = `${val.name} :`;
     
         let ProgressFist = document.createElement("progress");
-        ProgressFist.max = Totales;
+        ProgressFist.max = kg;
         ProgressFist.value = `${val.kg}`;
         ProgressFist.textContent = `${val.kg}%`;
     
@@ -57,9 +76,20 @@ export const progressPayloadWeights = (Totales, Rockets)=>{
         divInformationContainer.append(divLast)
         conterDiv.push(divInformationContainer)
     });
-    return conterDiv
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+    // <div class="information__container">
+    //     <div>
+    //         <label>Totle :</label>
+    //         <progress max="100" value="70">70%</progress>
+    //     </div>
+    //     <div>
+    //         <span>0 kg <br> 0 lb</span>
+    //     </div>
+    // </div>
 }
-export const progressHeightRocket = (Totales, Rockets)=>{
+export const progressHeightRocket = async(Rockets)=>{
+    let {meters} = await getRocketHeightTotal();
     let conterDiv = [];
     [Rockets.height].forEach(val => {
         let divInformationContainer = document.createElement("div");
@@ -69,7 +99,7 @@ export const progressHeightRocket = (Totales, Rockets)=>{
         labelFist.textContent = `Rocket Height :`;
     
         let ProgressFist = document.createElement("progress");
-        ProgressFist.max = Totales;
+        ProgressFist.max = meters;
         ProgressFist.value = `${val.meters}`;
         ProgressFist.textContent = `${val.meters}%`;
     
@@ -87,9 +117,20 @@ export const progressHeightRocket = (Totales, Rockets)=>{
         divInformationContainer.append(divLast)
         conterDiv.push(divInformationContainer)
     });
-    return conterDiv
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+    // <div class="information__container">
+    //     <div>
+    //         <label>Totle :</label>
+    //         <progress max="100" value="70">70%</progress>
+    //     </div>
+    //     <div>
+    //         <span>0 kg <br> 0 lb</span>
+    //     </div>
+    // </div>
 }
-export const progressDiameterRocket = (Totales, Rockets)=>{
+export const progressDiameterRocket = async(Rockets)=>{
+    let {meters} = await getRocketDiameterTotal();
     let conterDiv = [];
     [Rockets.diameter].forEach(val => {
         let divInformationContainer = document.createElement("div");
@@ -99,7 +140,7 @@ export const progressDiameterRocket = (Totales, Rockets)=>{
         labelFist.textContent = `Rocket diameter :`;
     
         let ProgressFist = document.createElement("progress");
-        ProgressFist.max = Totales;
+        ProgressFist.max = meters;
         ProgressFist.value = `${val.meters}`;
         ProgressFist.textContent = `${val.meters}%`;
     
@@ -117,9 +158,20 @@ export const progressDiameterRocket = (Totales, Rockets)=>{
         divInformationContainer.append(divLast)
         conterDiv.push(divInformationContainer)
     });
-    return conterDiv
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+    // <div class="information__container">
+    //     <div>
+    //         <label>Totle :</label>
+    //         <progress max="100" value="70">70%</progress>
+    //     </div>
+    //     <div>
+    //         <span>0 kg <br> 0 lb</span>
+    //     </div>
+    // </div>
 }
-export const progressSecondStageDiameterRocket = (Totales, Rockets)=>{
+export const progressSecondStageDiameterRocket = async(Rockets)=>{
+    let {meters} = await getRocketSecondStageCompositeFairingDiameterTotal();
     let conterDiv = [];
     [Rockets.second_stage.payloads.composite_fairing.diameter].forEach(val => {
         let divInformationContainer = document.createElement("div");
@@ -129,9 +181,9 @@ export const progressSecondStageDiameterRocket = (Totales, Rockets)=>{
         labelFist.textContent = `Diameter rocket shield :`;
     
         let ProgressFist = document.createElement("progress");
-        ProgressFist.max = Totales;
-        ProgressFist.value = `${val.meters}`;
-        ProgressFist.textContent = `${val.meters}%`;
+        ProgressFist.max = meters;
+        ProgressFist.value = `${val?.meters}`;
+        ProgressFist.textContent = `${val?.meters}%`;
     
     
         let divLast = document.createElement("div");
@@ -147,9 +199,20 @@ export const progressSecondStageDiameterRocket = (Totales, Rockets)=>{
         divInformationContainer.append(divLast)
         conterDiv.push(divInformationContainer)
     });
-    return conterDiv
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+    // <div class="information__container">
+    //     <div>
+    //         <label>Totle :</label>
+    //         <progress max="100" value="70">70%</progress>
+    //     </div>
+    //     <div>
+    //         <span>0 kg <br> 0 lb</span>
+    //     </div>
+    // </div>
 }
-export const progressSecondStageHeightRocket = (Totales, Rockets)=>{
+export const progressSecondStageHeightRocket = async(Rockets)=>{
+    let {meters} = await getRocketSecondStageCompositeFairingHeightTotal();
     let conterDiv = [];
     [Rockets.second_stage.payloads.composite_fairing.height].forEach(val => {
         let divInformationContainer = document.createElement("div");
@@ -159,7 +222,7 @@ export const progressSecondStageHeightRocket = (Totales, Rockets)=>{
         labelFist.textContent = `Height rocket shield :`;
     
         let ProgressFist = document.createElement("progress");
-        ProgressFist.max = Totales;
+        ProgressFist.max = meters;
         ProgressFist.value = `${val.meters}`;
         ProgressFist.textContent = `${val.meters}%`;
     
@@ -177,223 +240,15 @@ export const progressSecondStageHeightRocket = (Totales, Rockets)=>{
         divInformationContainer.append(divLast)
         conterDiv.push(divInformationContainer)
     });
-    return conterDiv
-}
-export const infoName = (Rockets)=>{
-    let conterDiv = [];
-    [Rockets].forEach(val => {
-        let divInformationContainer = document.createElement("div");
-        divInformationContainer.classList.add("description__container")
-        let divFirst = document.createElement("div");
-        let imgFist = document.createElement("img");
-        imgFist.src = "../storage/img/icons/iconos/rocket.svg";
-    
-    
-        let divLast = document.createElement("div");
-        let h3Last = document.createElement("h3");
-        h3Last.textContent = `name`
-        let smallLast = document.createElement("small")
-        smallLast.textContent = `${val.name}`
-    
-        divFirst.append(imgFist)
-        divLast.append(h3Last)
-        divLast.append(smallLast)
-        divInformationContainer.append(divFirst)
-        divInformationContainer.append(divLast)
-        conterDiv.push(divInformationContainer)
-    });
-    return conterDiv
-}
-export const infoType = (Rockets)=>{
-    let conterDiv = [];
-    [Rockets].forEach(val => {
-        let divInformationContainer = document.createElement("div");
-        divInformationContainer.classList.add("description__container")
-        let divFirst = document.createElement("div");
-        let imgFist = document.createElement("img");
-        imgFist.src = "../storage/img/icons/iconos/mech.svg";
-    
-    
-        let divLast = document.createElement("div");
-        let h3Last = document.createElement("h3");
-        h3Last.textContent = `type`
-        let smallLast = document.createElement("small")
-        smallLast.textContent = `${val.type}`
-    
-        divFirst.append(imgFist)
-        divLast.append(h3Last)
-        divLast.append(smallLast)
-        divInformationContainer.append(divFirst)
-        divInformationContainer.append(divLast)
-        conterDiv.push(divInformationContainer)
-    });
-    return conterDiv
-}
-export const infoActive = (Rockets)=>{
-    let conterDiv = [];
-    [Rockets].forEach(val => {
-        let divInformationContainer = document.createElement("div");
-        divInformationContainer.classList.add("description__container")
-        let divFirst = document.createElement("div");
-        let imgFist = document.createElement("img");
-        imgFist.src = "../storage/img/icons/iconos/mech.svg";
-    
-    
-        let divLast = document.createElement("div");
-        let h3Last = document.createElement("h3");
-        h3Last.textContent = `state`
-        let smallLast = document.createElement("small")
-        smallLast.textContent = `${val.active}`
-    
-        divFirst.append(imgFist)
-        divLast.append(h3Last)
-        divLast.append(smallLast)
-        divInformationContainer.append(divFirst)
-        divInformationContainer.append(divLast)
-        conterDiv.push(divInformationContainer)
-    });
-    return conterDiv
-}
-export const infoFirst_flight = (Rockets)=>{
-    let conterDiv = [];
-    [Rockets].forEach(val => {
-        let divInformationContainer = document.createElement("div");
-        divInformationContainer.classList.add("description__container")
-        let divFirst = document.createElement("div");
-        let imgFist = document.createElement("img");
-        imgFist.src = "../storage/img/icons/iconos/mech.svg";
-    
-    
-        let divLast = document.createElement("div");
-        let h3Last = document.createElement("h3");
-        h3Last.textContent = `first flight`
-        let smallLast = document.createElement("small")
-        smallLast.textContent = `${val.first_flight}`
-    
-        divFirst.append(imgFist)
-        divLast.append(h3Last)
-        divLast.append(smallLast)
-        divInformationContainer.append(divFirst)
-        divInformationContainer.append(divLast)
-        conterDiv.push(divInformationContainer)
-    });
-    return conterDiv
-}
-export const infoCountry = (Rockets)=>{
-    let conterDiv = [];
-    [Rockets].forEach(val => {
-        let divInformationContainer = document.createElement("div");
-        divInformationContainer.classList.add("description__container")
-        let divFirst = document.createElement("div");
-        let imgFist = document.createElement("img");
-        imgFist.src = "../storage/img/icons/iconos/mech.svg";
-    
-    
-        let divLast = document.createElement("div");
-        let h3Last = document.createElement("h3");
-        h3Last.textContent = `country`
-        let smallLast = document.createElement("small")
-        smallLast.textContent = `${val.country}`
-    
-        divFirst.append(imgFist)
-        divLast.append(h3Last)
-        divLast.append(smallLast)
-        divInformationContainer.append(divFirst)
-        divInformationContainer.append(divLast)
-        conterDiv.push(divInformationContainer)
-    });
-    return conterDiv
-}
-export const infoCompany = (Rockets)=>{
-    let conterDiv = [];
-    [Rockets].forEach(val => {
-        let divInformationContainer = document.createElement("div");
-        divInformationContainer.classList.add("description__container")
-        let divFirst = document.createElement("div");
-        let imgFist = document.createElement("img");
-        imgFist.src = "../storage/img/icons/iconos/mech.svg";
-    
-    
-        let divLast = document.createElement("div");
-        let h3Last = document.createElement("h3");
-        h3Last.textContent = `company`
-        let smallLast = document.createElement("small")
-        smallLast.textContent = `${val.company}`
-    
-        divFirst.append(imgFist)
-        divLast.append(h3Last)
-        divLast.append(smallLast)
-        divInformationContainer.append(divFirst)
-        divInformationContainer.append(divLast)
-        conterDiv.push(divInformationContainer)
-    });
-    return conterDiv
-}
-export const infoDescription = (Rockets)=>{
-    let conterDiv = [];
-    [Rockets].forEach(val => {
-        let divInformationContainer = document.createElement("div");
-        divInformationContainer.classList.add("description__container")
-        let divFirst = document.createElement("div");
-        let imgFist = document.createElement("img");
-        imgFist.src = "../storage/img/icons/iconos/mech.svg";
-    
-    
-        let divLast = document.createElement("div");
-        let h3Last = document.createElement("h3");
-        h3Last.textContent = `description`
-        let smallLast = document.createElement("small")
-        smallLast.textContent = `${val.description}`
-    
-        divFirst.append(imgFist)
-        divLast.append(h3Last)
-        divLast.append(smallLast)
-        divInformationContainer.append(divFirst)
-        divInformationContainer.append(divLast)
-        conterDiv.push(divInformationContainer)
-    });
-    return conterDiv
-}
-export const infoId = (Rockets)=>{
-    let conterDiv = [];
-    [Rockets].forEach(val => {
-        let divInformationContainer = document.createElement("div");
-        divInformationContainer.classList.add("description__container")
-        let divFirst = document.createElement("div");
-        let imgFist = document.createElement("img");
-        imgFist.src = "../storage/img/icons/iconos/mech.svg";
-    
-        let divLast = document.createElement("div");
-        let h3Last = document.createElement("h3");
-        h3Last.textContent = `id`
-        let smallLast = document.createElement("small")
-        smallLast.textContent = `${val.id}`
-    
-        divFirst.append(imgFist)
-        divLast.append(h3Last)
-        divLast.append(smallLast)
-        divInformationContainer.append(divFirst)
-        divInformationContainer.append(divLast)
-        conterDiv.push(divInformationContainer)
-    });
-    return conterDiv
-}
-export const infoImg = (Rockets)=>{
-    let conterDiv = [];
-    [Rockets].forEach(val => {
-        let divInformationContainer = document.createElement("div");
-        divInformationContainer.classList.add("description__container")
-        divInformationContainer.style.marginTop = "4px";
-        divInformationContainer.style.justifyContent = "center";
-        let imgFist = document.createElement("img");
-        imgFist.src = Rockets.flickr_images[0];
-        imgFist.style.width = "100%";
-        imgFist.style.height = "100%";
-        imgFist.style.borderRadius = "2px";
-        imgFist.style.boxShadow = "#298BFE 0px 0px 6px 4px";
-    
-        divInformationContainer.append(imgFist)
-        conterDiv.push(divInformationContainer)
-    });
-    return conterDiv
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+    // <div class="information__container">
+    //     <div>
+    //         <label>Totle :</label>
+    //         <progress max="100" value="70">70%</progress>
+    //     </div>
+    //     <div>
+    //         <span>0 kg <br> 0 lb</span>
+    //     </div>
+    // </div>
 }

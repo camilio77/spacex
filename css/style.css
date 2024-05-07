@@ -114,7 +114,6 @@ body {
         "section__header"
         "section__main"
         "section__footer";
-        box-shadow: 1px 1px 6px 1px var(--color--one);
 }
 
 .section__information__1 {
@@ -124,7 +123,6 @@ body {
     overflow-x: auto;
     gap: 10px;
     justify-content: space-evenly;
-    box-shadow: 1px 1px 6px 1px ;
 }
 
 .section__information__1>.carousel__item {
@@ -316,6 +314,7 @@ body {
     color: var(--color--five);
 }
 
+
 .footer {
     background-image: linear-gradient(#2476d3ab, #0d63c5), url(../storage/img/icons/iconos/pattern.svg);
     box-shadow: 1px 1px 6px 6px #05264d;
@@ -345,6 +344,10 @@ body {
     flex-direction: column;
 }
 
+.select{
+    padding: 8px 0;
+    border-bottom: 4px solid var(--color--five) ;
+}
 .nav__information {
     /* background: red; */
     grid-area: nav__2;
