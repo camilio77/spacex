@@ -336,7 +336,6 @@ body {
     color: var(--color--five);
 }
 
-
 .footer {
     background-image: linear-gradient(#2476d3ab, #0d63c5), url(../storage/img/icons/iconos/pattern.svg);
     box-shadow: 1px 1px 6px 6px #05264d;
@@ -349,13 +348,14 @@ body {
 }
 
 .footer ul {
+    content: "";
     grid-area: footer__menu;
-    /* background: violet; */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
 }
-
 .footer ul li {
     list-style: none;
 }
@@ -364,6 +364,8 @@ body {
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    color: var(--color--two);
 }
 
 .select{
