@@ -153,3 +153,99 @@ export const informationWebRocket = async(wikipedia)=>{
     //     </div>
     // </div>
 }
+
+
+
+
+//===================================================
+export const informationTypeCapsule = async(type)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Type of capsule"
+    let small = document.createElement('small');
+    small.textContent = type
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML="";
+    description__item.append(div)
+
+    // <div class="description__container">
+    //     <div>
+    //         <img src="http://www.example.com">
+    //     </div>
+    //     <div>
+    //         <h3>Title</h3>
+    //         <a href="#" target="_blank">Lorem</a>
+    //     </div>
+    // </div>
+}
+
+export const informationStatusCapsule = async(status)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Status of the capsule"
+    let small = document.createElement('small');
+    small.textContent = status
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
+
+    // <div class="description__container">
+    //     <div>
+    //         <img src="http://www.example.com">
+    //     </div>
+    //     <div>
+    //         <h3>Title</h3>
+    //         <a href="#" target="_blank">Lorem</a>
+    //     </div>
+    // </div>
+}
+
+export const informationIdCapsule = async(id)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "id of the capsule"
+    let small = document.createElement('small');
+    small.textContent = id
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
+
+    // <div class="description__container">
+    //     <div>
+    //         <img src="http://www.example.com">
+    //     </div>
+    //     <div>
+    //         <h3>Title</h3>
+    //         <a href="#" target="_blank">Lorem</a>
+    //     </div>
+    // </div>
+}
+
