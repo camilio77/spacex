@@ -191,66 +191,61 @@ export const tableCapsuleColum1 = async (Capsule)=>{
     information__table__2.innerHTML = "";
     
 }
-export const tableCapsuleColum2 = async (Capsule)=>{
-    let information__table__2 = document.querySelector("#information__table__2");
-    information__table__2.innerHTML = "";
+
+//============================================================
+
+export const tableLaunchesColum1 = async (Launch)=>{
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
     let h3 = document.createElement("h3");
-    h3.textContent = "Engine information"
+    h3.textContent = "Dates information"
     let hr = document.createElement("hr");
-    information__table__2.append(h3, hr)
+    information__table__1.append(h3, hr)
 
     let div = document.createElement("div");
     div.classList.add("table__container__1");
     // 
     let div1 = document.createElement("div");
     let span1 = document.createElement("span");
-    span1.textContent = "Maximum power loss"
+    span1.textContent = "date_utc"
     let strong1 = document.createElement("strong");
-    strong1.textContent = `${(Rocket.engines.engine_loss_max) ? Rocket.engines.engine_loss_max : 0}`
+    strong1.textContent = `${Launch.date_utc}`
     div1.append(span1, strong1)
 
     // 
     let div2 = document.createElement("div");
     let span2 = document.createElement("span");
-    span2.textContent = "Engine availability"
+    span2.textContent = "date_unix"
     let strong2 = document.createElement("strong");
-    strong2.textContent = `${(Rocket.engines.layout) ? Rocket.engines.layout : ""}`
+    strong2.textContent = `${Launch.date_unix}`
     div2.append(span2, strong2)
 
     // 
     let div3 = document.createElement("div");
     let span3 = document.createElement("span");
-    span3.textContent = "Number of engines"
+    span3.textContent = "date_local"
     let strong3 = document.createElement("strong");
-    strong3.textContent = `${(Rocket.engines.number) ? Rocket.engines.number : 0}`
+    strong3.textContent = `${Launch.date_local}`
     div3.append(span3, strong3)
 
     // 
     let div4 = document.createElement("div");
     let span4 = document.createElement("span");
-    span4.textContent = "Stage 1 fuel"
+    span4.textContent = "date_precision"
     let strong4 = document.createElement("strong");
-    strong4.textContent = `${(Rocket.engines.propellant_1) ? Rocket.engines.propellant_1 : ""}`
+    strong4.textContent = `${Launch.date_precision}`
     div4.append(span4, strong4)
 
     // 
     let div5 = document.createElement("div");
     let span5 = document.createElement("span");
-    span5.textContent = "Stage 2 fuel"
+    span5.textContent = "upcoming"
     let strong5 = document.createElement("strong");
-    strong5.textContent = `${(Rocket.engines.propellant_2) ? Rocket.engines.propellant_2 : ""}`
+    strong5.textContent = `${Launch.upcoming}`
     div5.append(span5, strong5)
 
-    // 
-    let div6 = document.createElement("div");
-    let span6 = document.createElement("span");
-    span6.textContent = "Type"
-    let strong6 = document.createElement("strong");
-    strong6.textContent = `${(Rocket.engines.type) ? Rocket.engines.type : 0} ${(Rocket.engines.version) ? Rocket.engines.version : ""}`
-    div6.append(span6, strong6)
-
-    div.append(div6, div1, div2, div3, div4, div5)
-    information__table__2.append(div)
+    div.append(div1, div2, div3, div4, div5)
+    information__table__1.append(div)
     // 
 
     // <h3>Title</h3>

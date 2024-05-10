@@ -28,7 +28,8 @@ import {
 import { 
     tableRocketColum1, 
     tableRocketColum2,
-    tableCapsuleColum1
+    tableCapsuleColum1,
+    tableLaunchesColum1
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -288,6 +289,8 @@ const getLaunchesId = async(e)=>{
     await informationVideoLaunc(Launch.links.webcast)
     await informationArticleLaunc(Launch.links.article)
     await imformationIdLaunch(Launch.id)
+    
+    await tableLaunchesColum1(Launch)
     
 }
 
