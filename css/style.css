@@ -9,7 +9,9 @@
 }
 
 body {
-    background-image: linear-gradient(var(--color--one), var(--color--one--rgba)), url(../storage/img/icons/iconos/pattern.svg);
+    background-image: url(../storage/img/icons/iconos/space-and-planetary-backgrounds-planetary-surface-with-mountains-stars-and-comets-in-dark-space-illustration-space-sky-with-planets-free-vector.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 *::-webkit-scrollbar {
@@ -120,6 +122,7 @@ body {
     /* background: red; */
     grid-area: section__header;
     display: flex;
+    flex-direction: row;
     overflow-x: auto;
     gap: 10px;
     justify-content: space-evenly;
@@ -233,21 +236,17 @@ body {
     /* background: orange; */
     grid-area: colum__2;
     display: flex;
-    overflow-x: auto;
+    overflow-x:hidden;
+    overflow-y: hidden;
     align-items: center;
     object-fit: contain;
 }
 .rocket{
-    width: 100px;
-    width: 100px;
+    width: 100%;
     object-fit: contain;
-    position: absolute;
     animation-name: flo;
     animation-duration: 5s;
     animation-iteration-count: infinite;
-    position: relative;
-    bottom: 80px;
-    left:20px;
     transform: rotate(-55deg);
 }
 @keyframes flo{
@@ -322,7 +321,7 @@ body {
 }
 
 .footer {
-    background-image: linear-gradient(#2476d3ab, #0d63c5), url(../storage/img/icons/iconos/pattern.svg);
+    background-image: linear-gradient(#841b9cab, #ad0dc5), url(../storage/img/icons/iconos/pattern.svg);
     box-shadow: 1px 1px 6px 6px #05264d;
     border-top-left-radius: 1000px;
     border-top-right-radius: 1000px;

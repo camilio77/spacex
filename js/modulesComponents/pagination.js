@@ -14,7 +14,9 @@ import {
     infoImg,
     informationTypeCapsule,
     informationStatusCapsule,
-    informationIdCapsule
+    informationIdCapsule,
+    informationLastUpdateCapsule,
+    informationlaunchesCapsule
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -39,6 +41,10 @@ import {
     getAllCapsules,
     getAllCapsulesId
 } from "../modules/capsules.js";
+///
+import { 
+    getAllLaunchesId
+} from "../modules/launches.js";
 
 export const load = async()=>{
     let header__title = document.querySelector("#header__title");
@@ -67,11 +73,8 @@ export const load = async()=>{
 
     let section__image = document.querySelector("#section__image")
     section__image.innerHTML = `
-    <div class="planets">
-        <img class="planetsimg" src="./storage/img/icons/iconos/Proyecto nuevo.svg">
-    </div>
     <div class="rocket">
-        <img class="rocketimg" src="./storage/img/icons/iconos/44247e29bf035ece825b8b2bf8af88c2-ilustracion-de-cohete-ilustracion-de-cohete.svg">
+        <img class="rocketimg" src="./storage/img/icons/iconos/sticker-png-astronaut-cartoon-astronaut-drawing-space-line-art-gesture.svg">
     </div>
     `;
 
@@ -201,6 +204,9 @@ const getCapsulesId = async(e)=>{
     await informationStatusCapsule(Capsule.status)
     await informationIdCapsule(Capsule.id)
     await tableCapsuleColum1(Capsule)
+    await informationLastUpdateCapsule(Capsule.last_update)
+    await informationlaunchesCapsule(Capsule.launches)
+
     
 }
 

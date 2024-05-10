@@ -1,3 +1,8 @@
+import { 
+    getAllLaunchesId
+} from "../modules/launches.js";
+
+
 export const infoName = async(name)=>{
     let div = document.createElement('div');
     div.classList.add('description__container')
@@ -249,3 +254,77 @@ export const informationIdCapsule = async(id)=>{
     // </div>
 }
 
+export const informationLastUpdateCapsule = async(last_update)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Last update of the capsule"
+    let small = document.createElement('small');
+    small.textContent = last_update
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
+
+    // <div class="description__container">
+    //     <div>
+    //         <img src="http://www.example.com">
+    //     </div>
+    //     <div>
+    //         <h3>Title</h3>
+    //         <a href="#" target="_blank">Lorem</a>
+    //     </div>
+    // </div>
+}
+
+export const informationlaunchesCapsule = async(info)=>{
+    let information__2 = document.querySelector("#information__2")
+    information__2.innerHTML = "";
+
+    for(let i=0; i<info.length; i++){
+        let launches = await getAllLaunchesId(info[i])
+        console.log(launches);
+
+        let div = document.createElement('div');
+        div.classList.add('description__container')
+        let divFirst = document.createElement('div');
+        let img = document.createElement('img');
+        img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+        divFirst.append(img);
+        
+        let divLast = document.createElement('div');
+        let h3 = document.createElement('h3');
+        h3.textContent = "Launch"
+        let small = document.createElement('small');
+        small.textContent = info[i]
+        if(launches.links.flickr.original[0]){
+            let img2 = document.createElement('img');
+            img2.setAttribute("src", `${launches.links.flickr.original[0]}`)
+            img2.style.width = "100%";
+            divLast.append(h3, small, img2);
+        } else {
+            divLast.append(h3, small);
+        }
+        div.append(divFirst, divLast);
+
+        information__2.append(div)
+    }
+    
+
+    // <div class="description__container">
+    //     <div>
+    //         <img src="http://www.example.com">
+    //     </div>
+    //     <div>
+    //         <h3>Title</h3>
+    //         <a href="#" target="_blank">Lorem</a>
+    //     </div>
+    // </div>
+}

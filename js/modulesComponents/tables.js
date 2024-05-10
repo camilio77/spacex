@@ -149,12 +149,12 @@ export const tableRocketColum2 = async (Rocket)=>{
 
 export const tableCapsuleColum1 = async (Capsule)=>{
 
-    let information__table__1 = document.querySelector("#information__table__1");
-    information__table__1.innerHTML = "";
+    let section__information__1 = document.querySelector("#section__information__1");
+    section__information__1.innerHTML = "";   
     let h3 = document.createElement("h3");
     h3.textContent = "Landings Capsule"
     let hr = document.createElement("hr");
-    information__table__1.append(h3, hr)
+    section__information__1.append(h3, hr)
 
     let div = document.createElement("div");
     div.classList.add("table__container__1");
@@ -183,7 +183,13 @@ export const tableCapsuleColum1 = async (Capsule)=>{
     div3.append(span3, strong3)
 
     div.append(div1, div2, div3)
-    information__table__1.append(div)
+    section__information__1.append(div)
+
+    let information__table__1 = document.querySelector("#information__table__1")
+    information__table__1.innerHTML = "";
+    let information__table__2 = document.querySelector("#information__table__2")
+    information__table__2.innerHTML = "";
+    
 }
 export const tableCapsuleColum2 = async (Capsule)=>{
     let information__table__2 = document.querySelector("#information__table__2");
