@@ -495,3 +495,20 @@ export const imformationIdLaunch = async(id)=>{
     description__item.append(div)
 
 }
+
+export const informationParchLaunch = async(link)=>{
+    let information__table__2 = document.querySelector("#information__table__2")
+    information__table__2.innerHTML = "";
+    if(link){
+        let div = document.createElement('div');
+        div.classList.add('description__container')
+        div.style.objectFit = "contain";
+        div.style.justifyContent = "center";
+        let imgFist = document.createElement("img");
+        imgFist.src = link;
+        imgFist.style.width = "60%";
+        div.append(imgFist);
+
+        information__table__2.append(div)
+    }
+}

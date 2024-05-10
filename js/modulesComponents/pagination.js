@@ -23,7 +23,8 @@ import {
     informationWikiLaunc,
     informationVideoLaunc,
     informationArticleLaunc,
-    imformationIdLaunch
+    imformationIdLaunch,
+    informationParchLaunch
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -291,6 +292,7 @@ const getLaunchesId = async(e)=>{
     await imformationIdLaunch(Launch.id)
     
     await tableLaunchesColum1(Launch)
+    await informationParchLaunch(Launch.links.patch.small)
     
 }
 
