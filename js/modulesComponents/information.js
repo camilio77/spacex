@@ -308,6 +308,9 @@ export const informationlaunchesCapsule = async(info)=>{
             let img2 = document.createElement('img');
             img2.setAttribute("src", `${launches.links.flickr.original[0]}`)
             img2.style.width = "100%";
+            img2.style.marginTop = "10px";
+            img2.style.borderRadius = "2px";
+            img2.style.boxShadow = "#298BFE 0px 0px 6px 4px";
             divLast.append(h3, small, img2);
         } else {
             divLast.append(h3, small);
@@ -317,6 +320,95 @@ export const informationlaunchesCapsule = async(info)=>{
         information__2.append(div)
     }
     
+
+    // <div class="description__container">
+    //     <div>
+    //         <img src="http://www.example.com">
+    //     </div>
+    //     <div>
+    //         <h3>Title</h3>
+    //         <a href="#" target="_blank">Lorem</a>
+    //     </div>
+    // </div>
+}
+
+
+//===================================================
+
+export const imformationLaunchesImg = async(imagen)=>{
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML = "";
+    if(imagen){
+        let div = document.createElement('div');
+        div.classList.add('description__container')
+        div.style.marginTop = "4px";
+        div.style.justifyContent = "center";
+        let imgFist = document.createElement("img");
+        imgFist.src = imagen;
+        imgFist.style.width = "100%";
+        imgFist.style.height = "200px";
+        imgFist.style.borderRadius = "2px";
+        imgFist.style.boxShadow = "#298BFE 0px 0px 6px 4px";
+        div.append(imgFist);
+
+        description__item.append(div)
+    }
+}
+
+export const informationDetailsLaunches = async(details)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    div.style.scale = "1.2";
+    div.style.marginTop = "40px";
+    div.style.width = "70%";
+    div.style.height = "40%";
+    div.style.overflowY = "auto";
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Details of the launch"
+    let small = document.createElement('small');
+    small.textContent = details
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let section__information__1 = document.querySelector("#section__information__1")
+    section__information__1.innerHTML = "";
+    section__information__1.append(div)
+
+    // <div class="description__container">
+    //     <div>
+    //         <img src="http://www.example.com">
+    //     </div>
+    //     <div>
+    //         <h3>Title</h3>
+    //         <a href="#" target="_blank">Lorem</a>
+    //     </div>
+    // </div>
+}
+
+export const imformationSuccessLaunch = async(success)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Success of the launch"
+    let small = document.createElement('small');
+    small.textContent = success
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
 
     // <div class="description__container">
     //     <div>
