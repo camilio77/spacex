@@ -19,7 +19,11 @@ import {
     informationlaunchesCapsule,
     imformationLaunchesImg,
     informationDetailsLaunches,
-    imformationSuccessLaunch
+    imformationSuccessLaunch,
+    informationWikiLaunc,
+    informationVideoLaunc,
+    informationArticleLaunc,
+    imformationIdLaunch
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -280,6 +284,10 @@ const getLaunchesId = async(e)=>{
     await imformationLaunchesImg(Launch.links.flickr.original[0])
     await informationDetailsLaunches(Launch.details)
     await imformationSuccessLaunch(Launch.success)
+    await informationWikiLaunc(Launch.links.wikipedia)
+    await informationVideoLaunc(Launch.links.webcast)
+    await informationArticleLaunc(Launch.links.article)
+    await imformationIdLaunch(Launch.id)
     
 }
 
