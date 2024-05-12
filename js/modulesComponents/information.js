@@ -1,7 +1,7 @@
 import { 
     getAllLaunchesId
 } from "../modules/launches.js";
-
+import { getAllRocketsId } from "../modules/rockets.js";
 
 export const infoName = async(name)=>{
     let div = document.createElement('div');
@@ -510,5 +510,160 @@ export const informationParchLaunch = async(link)=>{
         div.append(imgFist);
 
         information__table__2.append(div)
+    }
+}
+
+export const imformationRocketLaunch = async(Rocket)=>{
+    let RocketImg = (await getAllRocketsId(Rocket)).flickr_images[0];
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Rocket used"
+    let small = document.createElement('small');
+    small.textContent = Rocket
+    let img2 = document.createElement('img');
+    img2.src = RocketImg
+    img2.style.width = "100%";
+    img2.style.height = "100%";
+    img2.style.borderRadius = "2px";
+    img2.style.boxShadow = "#298BFE 0px 0px 6px 4px";
+    divLast.append(h3, small, img2);
+    div.append(divFirst, divLast);
+
+    let description__item = document.querySelector("#information__2")
+    description__item.innerHTML = "";
+    description__item.append(div)
+
+}
+
+
+//==============================================
+export const imformationImageCrew = async(image)=>{
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML = "";
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    div.style.marginTop = "4px";
+    div.style.justifyContent = "center";
+    let imgFist = document.createElement("img");
+    imgFist.src = image;
+    imgFist.style.width = "100%";
+    imgFist.style.height = "200px";
+    imgFist.style.borderRadius = "2px";
+    imgFist.style.boxShadow = "#298BFE 0px 0px 6px 4px";
+    div.append(imgFist);
+
+    description__item.append(div)
+}
+
+export const informationAgencyCrew = async (agency) => {
+    let section__information__1 = document.querySelector("#description__item")
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Crew menber agency"
+    let small = document.createElement('small');
+    small.textContent = agency
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    section__information__1.append(div)
+}
+
+export const informationIdCrew = async (id) => {
+    let section__information__1 = document.querySelector("#section__information__1")
+    section__information__1.innerHTML = "";
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Crew menber ID"
+    let small = document.createElement('small');
+    small.textContent = id
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    section__information__1.append(div)
+}
+
+export const informationStatusCrew = async (status) => {
+    let section__information__1 = document.querySelector("#section__information__1")
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Crew menber status"
+    let small = document.createElement('small');
+    small.textContent = status
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    section__information__1.append(div)
+}
+
+export const informationWikiCrew = async(wikipedia)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Read more about the member"
+    let a = document.createElement('a');
+    a.setAttribute("href", wikipedia)
+    a.setAttribute("target", "_blank")
+    a.textContent = "Wikipedia"
+    divLast.append(h3, a);
+    div.append(divFirst, divLast);
+    let description__item = document.querySelector("#section__information__1")
+    description__item.append(div)
+}
+
+export const informationLaunchCrew = async (launch) => {
+    let section__information__1 = document.querySelector("#information__2")
+    section__information__1.innerHTML = "";
+    for (let i = 0; i < launch.length; i++) {
+        let launches = (await getAllLaunchesId(launch[i]))
+        let div = document.createElement('div');
+        div.classList.add('description__container')
+        let divFirst = document.createElement('div');
+        let img = document.createElement('img');
+        img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+        divFirst.append(img);
+        
+        let divLast = document.createElement('div');
+        let h3 = document.createElement('h3');
+        h3.textContent = "Launch id"
+        let small = document.createElement('small');
+        small.textContent = launches.id
+        divLast.append(h3, small);
+        div.append(divFirst, divLast);
+
+        section__information__1.append(div)
     }
 }

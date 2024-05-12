@@ -24,7 +24,14 @@ import {
     informationVideoLaunc,
     informationArticleLaunc,
     imformationIdLaunch,
-    informationParchLaunch
+    informationParchLaunch,
+    imformationRocketLaunch,
+    imformationImageCrew,
+    informationIdCrew,
+    informationStatusCrew,
+    informationWikiCrew,
+    informationAgencyCrew,
+    informationLaunchCrew
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -55,6 +62,11 @@ import {
     getAllLaunches,
     getAllLaunchesId
 } from "../modules/launches.js";
+///
+import {
+    getAllCrew,
+    getAllCrewId
+} from "../modules/crew.js";
 
 export const load = async()=>{
     let header__title = document.querySelector("#header__title");
@@ -293,6 +305,7 @@ const getLaunchesId = async(e)=>{
     
     await tableLaunchesColum1(Launch)
     await informationParchLaunch(Launch.links.patch.small)
+    await imformationRocketLaunch(Launch.rocket)
     
 }
 
@@ -324,6 +337,78 @@ export const paginationLaunches = async(page=1, limit=4)=>{
     end.innerHTML = "&raquo;";
     end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
     end.addEventListener("click", getLaunchesId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+    // <div class="buttom__paginacion">
+    //     <a href="#">&laquo;</a> 
+    //     <a href="#" class="activo">1</a>
+    //     <a href="#">2</a>
+    //     <a href="#">3</a>
+    //     <a href="#">4</a>
+    //     <a href="#">&raquo;</a>
+    // </div>
+    return div;
+}
+
+
+
+const getCrewId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationCrew(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+
+    let Crew = await getAllCrewId(e.target.id);
+    console.log(Crew);
+
+    await nameRockets(Crew.name)    
+    await imformationImageCrew(Crew.image)
+    await informationIdCrew(Crew.id)
+    await informationStatusCrew(Crew.status)
+    await informationWikiCrew(Crew.wikipedia)
+    await informationAgencyCrew(Crew.agency)
+    await informationLaunchCrew(Crew.launches)
+    
+}
+
+export const paginationCrew = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllCrew(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getCrewId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getCrewId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getCrewId)
     div.appendChild(end);
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children
