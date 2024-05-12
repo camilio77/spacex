@@ -661,9 +661,20 @@ export const informationLaunchCrew = async (launch) => {
         h3.textContent = "Launch id"
         let small = document.createElement('small');
         small.textContent = launches.id
-        divLast.append(h3, small);
+        let img2 = document.createElement("img")
+        img2.src = launches.links.flickr.original[0]
+        img2.style.marginTop = "10px";
+        img2.style.width = "100%";
+        img2.style.height = "200px";
+        img2.style.borderRadius = "2px";
+        img2.style.boxShadow = "#298BFE 0px 0px 6px 4px";
+        divLast.append(h3, small, img2);
         div.append(divFirst, divLast);
 
         section__information__1.append(div)
     }
+    let information__table__2 = document.querySelector("#information__table__2")
+    information__table__2.innerHTML = "";
+    let information__table__1 = document.querySelector("#information__table__1")
+    information__table__1.innerHTML = "";
 }
