@@ -830,3 +830,133 @@ export const informationAsds_landingsCores = async(asds_landings)=>{
 
     section__information__1.append(div)
 }
+
+//================================================================
+
+export const informationTypeDragons = async(type)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Type of dragon"
+    let small = document.createElement('small');
+    small.textContent = type
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
+}
+
+export const informationActive = async(active) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Dragon active?"
+    let small = document.createElement('small');
+    small.textContent = active
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
+}
+
+
+export const informationWikiDragon = async(wikipedia)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Read more about the dragon"
+    let a = document.createElement('a');
+    a.setAttribute("href", wikipedia)
+    a.setAttribute("target", "_blank")
+    a.textContent = "Wikipedia"
+    divLast.append(h3, a);
+    div.append(divFirst, divLast);
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
+}
+
+export const informationDescriptionDragons = async(description)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    div.style.scale = "1.2";
+    div.style.marginTop = "40px";
+    div.style.width = "70%";
+    div.style.height = "40%";
+    div.style.overflowY = "auto";
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Description of the dragon"
+    let small = document.createElement('small');
+    small.textContent = description
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let section__information__1 = document.querySelector("#section__information__1")
+    section__information__1.innerHTML = "";
+    section__information__1.append(div)
+}
+
+export const informationIdDragon = async (id) => {
+    let section__information__1 = document.querySelector("#description__item")
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Dragon ID"
+    let small = document.createElement('small');
+    small.textContent = id
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    section__information__1.append(div)
+}
+
+export const informationDragon1 = async (thing) => {
+    let section__information__1 = document.querySelector("#information__2")
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Dragon heat shield"
+    let small = document.createElement('small');
+    small.textContent = thing
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    section__information__1.append(div)
+}

@@ -97,4 +97,4 @@ Launchpads.addEventListener("click", async(e)=>{
 })
 
 
-Crew.click();
+Dragons.click();

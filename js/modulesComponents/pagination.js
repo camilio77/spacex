@@ -38,13 +38,30 @@ import {
     informationRtls_attemptsCores,
     informationRtls_landingsCores,
     informationAsds_attemptsCores,
-    informationAsds_landingsCores
+    informationAsds_landingsCores,
+    informationTypeDragons,
+    informationActive,
+    informationIdDragon,
+    informationDescriptionDragons,
+    informationWikiDragon
 } from "./information.js";
 import { 
     tableRocketColum1, 
     tableRocketColum2,
     tableCapsuleColum1,
-    tableLaunchesColum1
+    tableLaunchesColum1,
+    tableDragon1,
+    tableDragon2,
+    tableDragon3,
+    tableDragon4,
+    tableDragon5,
+    tableDragon6,
+    tableDragon7,
+    tableDragon8,
+    tableDragon9,
+    tableDragon10,
+    tableDragonsColum1,
+    tableDragonsColum2
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -545,11 +562,31 @@ const getDragonsId = async(e)=>{
     e.target.classList.add('activo');
     
 
-    let Crew = await getAllDragonsId(e.target.id);
-    console.log(Crew);
+    let Dragons = await getAllDragonsId(e.target.id);
+    console.log(Dragons);
 
-    await nameRockets(Crew.name)    
-    
+    await nameRockets(Dragons.name)   
+    await imformationLaunchesImg(Dragons.flickr_images[1]) 
+    await informationTypeDragons(Dragons.type)
+    await informationActive(Dragons.active)
+    await informationWikiDragon(Dragons.wikipedia)
+    await informationIdDragon(Dragons.id)
+
+    await informationDescriptionDragons(Dragons.description)
+
+    await tableDragon1(Dragons.heat_shield)
+    await tableDragon2(Dragons.launch_payload_mass)
+    await tableDragon3(Dragons.launch_payload_vol)
+    await tableDragon4(Dragons.return_payload_mass)
+    await tableDragon5(Dragons.return_payload_vol)
+    await tableDragon6(Dragons.pressurized_capsule.payload_volume)
+    await tableDragon7(Dragons.trunk.trunk_volume)
+    await tableDragon8(Dragons.trunk.cargo)
+    await tableDragon9(Dragons.height_w_trunk)
+    await tableDragon10(Dragons.diameter)
+
+    await tableDragonsColum1(Dragons.thrusters[0])
+    await tableDragonsColum2(Dragons)
 }
 
 export const paginationDragons = async(page=1, limit=4)=>{  
