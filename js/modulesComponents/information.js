@@ -678,3 +678,155 @@ export const informationLaunchCrew = async (launch) => {
     let information__table__1 = document.querySelector("#information__table__1")
     information__table__1.innerHTML = "";
 }
+
+//====================================================
+export const informationDetailsCores = async(details)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    div.style.scale = "1.2";
+    div.style.marginTop = "40px";
+    div.style.width = "70%";
+    div.style.height = "40%";
+    div.style.overflowY = "auto";
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Last update"
+    let small = document.createElement('small');
+    small.textContent = details
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let section__information__1 = document.querySelector("#section__information__1")
+    section__information__1.innerHTML = "";
+    section__information__1.append(div)
+}
+
+export const borrador = async() =>{
+    let section__information__1 = document.querySelector("#description__item")
+    section__information__1.innerHTML = "";
+}
+
+export const informationBlockCores = async(block)=>{
+    let section__information__1 = document.querySelector("#description__item")
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Block of the core"
+    let small = document.createElement('small');
+    small.textContent = block
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    section__information__1.append(div)
+}
+
+export const informationReuse_countCores = async(reuse_count)=>{
+    let section__information__1 = document.querySelector("#description__item")
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Reuse count of the core"
+    let small = document.createElement('small');
+    small.textContent = reuse_count
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    section__information__1.append(div)
+}
+
+export const informationRtls_attemptsCores = async(rtls_attempts)=>{
+    let section__information__1 = document.querySelector("#description__item")
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Rtls attempts of the core"
+    let small = document.createElement('small');
+    small.textContent = rtls_attempts
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    section__information__1.append(div)
+}
+
+export const informationRtls_landingsCores = async(rtls_landings)=>{
+    let section__information__1 = document.querySelector("#description__item")
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Rtls landings of the core"
+    let small = document.createElement('small');
+    small.textContent = rtls_landings
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    section__information__1.append(div)
+}
+
+export const informationAsds_attemptsCores = async(asds_attempts)=>{
+    let section__information__1 = document.querySelector("#description__item")
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Asds attempts of the core"
+    let small = document.createElement('small');
+    small.textContent = asds_attempts
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    section__information__1.append(div)
+}
+
+export const informationAsds_landingsCores = async(asds_landings)=>{
+    let section__information__1 = document.querySelector("#description__item")
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Asds landings of the core"
+    let small = document.createElement('small');
+    small.textContent = asds_landings
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    section__information__1.append(div)
+}

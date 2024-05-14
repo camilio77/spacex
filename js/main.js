@@ -3,7 +3,12 @@ import {
     paginationCapsules,
     paginationRockets,
     paginationLaunches,
-    paginationCrew
+    paginationCrew,
+    paginationCores,
+    paginationDragons,
+    paginationHistory,
+    paginationLandings,
+    paginationLaunchpads
 } from "./modulesComponents/pagination.js";
 
 let footerSelect = async(e, id)=>{
@@ -49,6 +54,46 @@ Crew.addEventListener("click", async(e)=>{
     let paginacion = document.querySelector("#paginacion");
     paginacion.innerHTML = ""
     paginacion.append(await paginationCrew())
+})
+
+let Cores = document.querySelector("#Cores")
+Cores.addEventListener("click", async(e)=>{
+    await footerSelect(e, Cores)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationCores())
+})
+
+let Dragons = document.querySelector("#Dragons")
+Dragons.addEventListener("click", async(e)=>{
+    await footerSelect(e, Dragons)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationDragons())
+})
+
+let History = document.querySelector("#History")
+History.addEventListener("click", async(e)=>{
+    await footerSelect(e, History)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationHistory())
+})
+
+let Landings = document.querySelector("#Landings")
+Landings.addEventListener("click", async(e)=>{
+    await footerSelect(e, Landings)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationLandings())
+})
+
+let Launchpads = document.querySelector("#Launchpads")
+Launchpads.addEventListener("click", async(e)=>{
+    await footerSelect(e, Launchpads)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationLaunchpads())
 })
 
 
