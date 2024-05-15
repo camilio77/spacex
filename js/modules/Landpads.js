@@ -1,4 +1,4 @@
-export const getAllLandings = async (page,limit)=>{
+export const getAllLandpads = async (page,limit)=>{
     let config = {
         headers:{
             "content-type": "application/json"
@@ -11,14 +11,14 @@ export const getAllLandings = async (page,limit)=>{
             }
         })
     }
-    let res = await fetch("https://api.spacexdata.com/v4/landings/query", config)
+    let res = await fetch("https://api.spacexdata.com/v4/landpads/query", config)
     let data = await res.json();
     console.log(data);
     return data;
 }
 
-export const getAllLandingsId = async (id)=>{
-    let res = await fetch(`https://api.spacexdata.com/v4/landings/${id}`)
+export const getAllLandpadsId = async (id)=>{
+    let res = await fetch(`https://api.spacexdata.com/v4/landpads/${id}`)
     let data = await res.json();
     return data;
 }

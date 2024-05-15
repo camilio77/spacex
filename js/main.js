@@ -7,7 +7,7 @@ import {
     paginationCores,
     paginationDragons,
     paginationHistory,
-    paginationLandings,
+    paginationLandpads,
     paginationLaunchpads
 } from "./modulesComponents/pagination.js";
 
@@ -80,12 +80,12 @@ History.addEventListener("click", async(e)=>{
     paginacion.append(await paginationHistory())
 })
 
-let Landings = document.querySelector("#Landings")
-Landings.addEventListener("click", async(e)=>{
-    await footerSelect(e, Landings)
+let Landpads = document.querySelector("#Landpads")
+Landpads.addEventListener("click", async(e)=>{
+    await footerSelect(e, Landpads)
     let paginacion = document.querySelector("#paginacion");
     paginacion.innerHTML = ""
-    paginacion.append(await paginationLandings())
+    paginacion.append(await paginationLandpads())
 })
 
 let Launchpads = document.querySelector("#Launchpads")
@@ -97,4 +97,4 @@ Launchpads.addEventListener("click", async(e)=>{
 })
 
 
-Dragons.click();
+Landpads.click();

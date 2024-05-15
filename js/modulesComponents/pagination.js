@@ -43,7 +43,20 @@ import {
     informationActive,
     informationIdDragon,
     informationDescriptionDragons,
-    informationWikiDragon
+    informationWikiDragon,
+    informationDetails,
+    informationArticle,
+    informationId,
+    informationDate,
+    informationDate2,
+    informationWikiLand,
+    informationTypeLand,
+    informationStatusLand,
+    informationNameLand,
+    informationAttemptLand,
+    informationSuccesesLand,
+    informationAttemptLaunch,
+    informationSuccesesLaunch
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -61,7 +74,8 @@ import {
     tableDragon9,
     tableDragon10,
     tableDragonsColum1,
-    tableDragonsColum2
+    tableDragonsColum2,
+    tableLandColum1
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -108,9 +122,9 @@ import {
 } from "../modules/history.js";
 ///
 import {
-    getAllLandings,
-    getAllLandingsId
-} from "../modules/landings.js";
+    getAllLandpads,
+    getAllLandpadsId
+} from "../modules/Landpads.js";
 ///
 import {
     getAllLaunchpads,
@@ -638,7 +652,7 @@ const getHistoryId = async(e)=>{
     if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
         paginacion.innerHTML = ""
-        paginacion.append(await paginationCrew(Number(e.target.dataset.page)))
+        paginacion.append(await paginationHistory(Number(e.target.dataset.page)))
     }
     let a = e.target.parentElement.children;
     for(let val of a){
@@ -647,16 +661,15 @@ const getHistoryId = async(e)=>{
     e.target.classList.add('activo');
     
 
-    let Crew = await getAllCrewId(e.target.id);
-    console.log(Crew);
+    let History = await getAllHistoryId(e.target.id);
+    console.log(History);
 
-    await nameRockets(Crew.name)    
-    await imformationImageCrew(Crew.image)
-    await informationIdCrew(Crew.id)
-    await informationStatusCrew(Crew.status)
-    await informationWikiCrew(Crew.wikipedia)
-    await informationAgencyCrew(Crew.agency)
-    await informationLaunchCrew(Crew.launches)
+    await nameRockets(History.title)    
+    await informationDetails(History.details)
+    await informationArticle(History.links.article)
+    await informationId(History.id)
+    await informationDate(History.event_date_utc)
+    await informationDate2(History.event_date_unix)
     
 }
 
@@ -704,12 +717,12 @@ export const paginationHistory = async(page=1, limit=4)=>{
 }
 
 
-const getLandingsId = async(e)=>{
+const getLandpadsId = async(e)=>{
     e.preventDefault();
     if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
         paginacion.innerHTML = ""
-        paginacion.append(await paginationCrew(Number(e.target.dataset.page)))
+        paginacion.append(await paginationLandpads(Number(e.target.dataset.page)))
     }
     let a = e.target.parentElement.children;
     for(let val of a){
@@ -718,22 +731,30 @@ const getLandingsId = async(e)=>{
     e.target.classList.add('activo');
     
 
-    let Crew = await getAllCrewId(e.target.id);
-    console.log(Crew);
+    let Landpads = await getAllLandpadsId(e.target.id);
+    console.log(Landpads);
 
-    await nameRockets(Crew.name)    
-    await imformationImageCrew(Crew.image)
-    await informationIdCrew(Crew.id)
-    await informationStatusCrew(Crew.status)
-    await informationWikiCrew(Crew.wikipedia)
-    await informationAgencyCrew(Crew.agency)
-    await informationLaunchCrew(Crew.launches)
+    await nameRockets(Landpads.name)  
     
+    await informationNameLand(Landpads.full_name)
+    await informationId(Landpads.id)
+    await informationStatusLand(Landpads.status)
+    await informationTypeLand(Landpads.type)
+    await informationWikiLand(Landpads.wikipedia)
+
+    await informationLaunchCrew(Landpads.launches)
+
+    await informationDetails(Landpads.details)
+
+    await tableLandColum1(Landpads)
+    await informationAttemptLand(Landpads.landing_attempts)
+    await informationSuccesesLand(Landpads.landing_successes)
+
 }
 
-export const paginationLandings = async(page=1, limit=4)=>{  
+export const paginationLandpads = async(page=1, limit=4)=>{  
      
-    let {docs, pagingCounter, totalPages, nextPage} = await getAllLandings(page, limit)
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllLandpads(page, limit)
 
     let div = document.createElement("div");
     div.classList.add("buttom__paginacion")
@@ -743,14 +764,14 @@ export const paginationLandings = async(page=1, limit=4)=>{
     start.setAttribute("href","#");
     start.innerHTML = "&laquo";
     start.setAttribute("data-page", (page==1) ? totalPages : page-1)
-    start.addEventListener("click", getLandingsId)
+    start.addEventListener("click", getLandpadsId)
     div.appendChild(start);
     docs.forEach((val,id) => {
         let a = document.createElement("a");
         a.setAttribute("href","#");
         a.id = val.id;
         a.textContent = pagingCounter;
-        a.addEventListener("click", getLandingsId)
+        a.addEventListener("click", getLandpadsId)
         div.appendChild(a);
         pagingCounter++
     });
@@ -758,7 +779,7 @@ export const paginationLandings = async(page=1, limit=4)=>{
     end.setAttribute("href","#");
     end.innerHTML = "&raquo;";
     end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
-    end.addEventListener("click", getLandingsId)
+    end.addEventListener("click", getLandpadsId)
     div.appendChild(end);
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children
@@ -780,7 +801,7 @@ const getLaunchpadsId = async(e)=>{
     if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
         paginacion.innerHTML = ""
-        paginacion.append(await paginationCrew(Number(e.target.dataset.page)))
+        paginacion.append(await paginationLaunchpads(Number(e.target.dataset.page)))
     }
     let a = e.target.parentElement.children;
     for(let val of a){
@@ -789,16 +810,23 @@ const getLaunchpadsId = async(e)=>{
     e.target.classList.add('activo');
     
 
-    let Crew = await getAllCrewId(e.target.id);
-    console.log(Crew);
+    let Launchpads = await getAllLaunchpadsId(e.target.id);
+    console.log(Launchpads);
 
-    await nameRockets(Crew.name)    
-    await imformationImageCrew(Crew.image)
-    await informationIdCrew(Crew.id)
-    await informationStatusCrew(Crew.status)
-    await informationWikiCrew(Crew.wikipedia)
-    await informationAgencyCrew(Crew.agency)
-    await informationLaunchCrew(Crew.launches)
+    await nameRockets(Launchpads.name)  
+    
+    await informationNameLand(Launchpads.full_name)
+    await informationId(Launchpads.id)
+    await informationStatusLand(Launchpads.status)
+    await informationWikiLand(Launchpads.wikipedia)
+
+    await informationLaunchCrew(Launchpads.launches)
+
+    await informationDetails(Launchpads.details)
+
+    await tableLandColum1(Launchpads)
+    await informationAttemptLaunch(Launchpads.launch_attempts)
+    await informationSuccesesLaunch(Launchpads.launch_successes)
     
 }
 
